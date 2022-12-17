@@ -1,0 +1,11 @@
+@use 'devices';
+@use 'colors';
+
+body {
+  margin: 0;
+  background-color: $body;
+}
+
+* {
+  font-family: "Hiragino Sans", "Noto Sans JP", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;; 
+}

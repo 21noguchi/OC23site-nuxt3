@@ -1,0 +1,18 @@
+$breakpoint-large: 960px;
+$breakpoint-small: 520px;
+
+@mixin pc {
+  @media (min-width: ($breakpoint-large + 1px)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (min-width: ($breakpoint-small + 1px)) and (max-width: $breakpoint-large) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: $breakpoint-small) {
+    @content;
+  }
+}

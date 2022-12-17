@@ -1,5 +1,6 @@
 <template>
   <div>
-    ほげ
+    <PagesIndexUser />
+    <PagesIndexNews />
   </div>
 </template>
