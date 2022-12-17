@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/23/visitor/files${fileLink}`" class="download-button">
+  <a :href="`/ori/2023/visitor/files${fileLink}`" class="download-button">
     <p>ダウンロード</p>
   </a>
 </template>

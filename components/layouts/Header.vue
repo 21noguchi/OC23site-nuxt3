@@ -3,7 +3,7 @@
     <div class="front">
       <NuxtLink to="/" class="top">
         <div class="logo">
-          <img src="/logo.png" alt="オリエンテーション委員会ロゴ">
+          <img src="/ori/2023/visitor/logo.png" alt="オリエンテーション委員会ロゴ">
         </div>
         <div class="org">
           <p class="full">

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/ico", href: "/favicon.ico" }
       ],
     },
-    baseURL: "/23/visitor"
+    baseURL: "/ori/2023/visitor"
   },
   typescript: {
     strict: true
