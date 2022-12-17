@@ -8,10 +8,11 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" }
       ],
       link: [
-        { rel: "icon", type: "image/ico", href: "/favicon.ico" }
+        { rel: "icon", type: "image/ico", href: "/ori/2023/visitor/favicon.ico" }
       ],
     },
-    baseURL: "/ori/2023/visitor"
+    baseURL: "/ori/2023/visitor",
+    cdnURL: "/ori/2023/visitor"
   },
   typescript: {
     strict: true

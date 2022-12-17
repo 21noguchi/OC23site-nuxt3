@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/ori/2023/visitor/files${fileLink}`" class="download-button">
+  <a :href="`${baseURL}/files${fileLink}`" target="_blank" class="download-button">
     <p>ダウンロード</p>
   </a>
 </template>
@@ -7,8 +7,11 @@
 <script setup lang="ts">
 interface DownloadDetail {
   fileLink: string;
-}
+};
 defineProps<DownloadDetail>();
+
+const runtimeconfig = useRuntimeConfig();
+const baseURL = runtimeconfig.app.baseURL;
 </script>
 
 <style lang="scss">

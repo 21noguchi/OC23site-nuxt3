@@ -3,7 +3,7 @@
     <div class="front">
       <NuxtLink to="/" class="top">
         <div class="logo">
-          <img src="/ori/2023/visitor/logo.png" alt="オリエンテーション委員会ロゴ">
+          <img :src="`${baseURL}/logo.png`" alt="オリエンテーション委員会ロゴ">
         </div>
         <div class="org">
           <p class="full">
@@ -16,6 +16,11 @@
     <div class="backspace"></div>
   </div>
 </template>
+
+<script setup lang="ts">
+const runtimeconfig = useRuntimeConfig();
+const baseURL = runtimeconfig.app.baseURL;
+</script>
 
 <style lang="scss" scoped>
 .front {
