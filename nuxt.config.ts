@@ -5,12 +5,13 @@ export default defineNuxtConfig({
       title: "2023年度オリエンテーション委員会",
       meta: [
         { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" }
       ],
       link: [
-        { rel: "icon", type: "image/ico", href: "/favicon.ico" }, // これを追記する
+        { rel: "icon", type: "image/ico", href: "/favicon.ico" }
       ],
     },
+    baseURL: "/23/visitor"
   },
   typescript: {
     strict: true
