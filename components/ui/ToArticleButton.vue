@@ -22,6 +22,7 @@ defineProps<ArticleInformation>();
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   width: 90vw;
   @include tab {
@@ -46,13 +47,14 @@ defineProps<ArticleInformation>();
 
   .link {
     width: 100%;
+    height: 100%;
 
     text-decoration: none;
     color: $text;
 
     .date {
       font-size: 12px;
-      margin: 0 10px;
+      margin: 5px 10px;
     }
     .text {
       font-size: 16px;
