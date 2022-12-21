@@ -9,6 +9,10 @@
   </div>
 </template>
 
+<script setup lang="ts">
+console.log(await $fetch('/api/hello'))
+</script>
+
 <style lang="scss" scoped>
 .article {
   display: flex;
