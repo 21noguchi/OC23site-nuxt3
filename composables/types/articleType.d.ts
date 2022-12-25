@@ -1,0 +1,1 @@
+type ArticleType = "freshers" | "oriter" | "circle" | "news" | "committee";

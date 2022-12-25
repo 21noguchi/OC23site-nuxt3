@@ -1,12 +1,12 @@
 <template>
   <div>
-    <p class="news">新着情報</p>
+    <p class="committee">当委員会について</p>
     <div v-for="topic in topics" :key="topic">
       <p class="title">{{ topic }}</p>
       <div class="articles">
         <UiToArticleButton
           v-for="article in eliminateListByTopic(topic)"
-          :toArticleLink="`/news/${article.title}`"
+          :toArticleLink="`/committee/${article.title}`"
           :updateDate="article.date"
           :articleDetail="article.title"
         />
@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
   const { eliminateArticlesByType } = articlesState();
-  const articlesList = eliminateArticlesByType("news");
+  const articlesList = eliminateArticlesByType("committee");
   const organizeListToTopics = (list: SaveArticle[]): string[] => {
     const topics = [] as string[];
     for (let i = 0; i < list.length; i ++) {
@@ -36,7 +36,7 @@
 </script>
 
 <style lang="scss" scoped>
-.news {
+.committee {
   width: fit-content;
   margin: 10px 0 20px 4vw;
   @include tab {

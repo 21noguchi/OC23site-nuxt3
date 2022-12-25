@@ -1,44 +1,39 @@
 <template>
   <div>
     <p class="oriter">オリターの方</p>
-    <p class="title">お知らせ</p>
-    <div class="articles">
-      <UiToArticleButton 
-        toArticleLink="/oriter/hoge"
-        updateDate="2022.12.17"
-        articleDetail="耐えがたきを耐え、忍び難きを忍び、ただ太平を開かんと欲す"
-      />
-      <UiToArticleButton 
-        toArticleLink="/"
-        updateDate="2022.12.17"
-        articleDetail="耐えがたきを耐え、忍び難きを忍び、ただ太平を開かんと欲す"
-      />
-      <UiToArticleButton 
-        toArticleLink="/"
-        updateDate="2022.12.17"
-        articleDetail="耐えがたきを耐え、忍び難きを忍び、ただ太平を開かんと欲す"
-      />
-    </div>
-    <p class="title">オリター連絡会議</p>
-    <div class="articles">
-      <UiToArticleButton 
-        toArticleLink="/"
-        updateDate="2022.12.17"
-        articleDetail="耐えがたきを耐え、忍び難きを忍び、ただ太平を開かんと欲す"
-      />
-      <UiToArticleButton 
-        toArticleLink="/"
-        updateDate="2022.12.17"
-        articleDetail="耐えがたきを耐え、忍び難きを忍び、ただ太平を開かんと欲す"
-      />
-      <UiToArticleButton 
-        toArticleLink="/"
-        updateDate="2022.12.17"
-        articleDetail="耐えがたきを耐え、忍び難きを忍び、ただ太平を開かんと欲す"
-      />
+    <div v-for="topic in topics" :key="topic">
+      <p class="title">{{ topic }}</p>
+      <div class="articles">
+        <UiToArticleButton
+          v-for="article in eliminateListByTopic(topic)"
+          :toArticleLink="`/oriter/${article.title}`"
+          :updateDate="article.date"
+          :articleDetail="article.title"
+        />
+      </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+  const { eliminateArticlesByType } = articlesState();
+  const articlesList = eliminateArticlesByType("oriter");
+  const organizeListToTopics = (list: SaveArticle[]): string[] => {
+    const topics = [] as string[];
+    for (let i = 0; i < list.length; i ++) {
+      if (!topics.includes(list[i].topic)) {
+        topics.push(list[i].topic);
+      }
+    }
+    return topics
+  };
+  const topics = organizeListToTopics(articlesList);
+  const eliminateListByTopic = (topic: string): SaveArticle[] => {
+    return articlesList.filter(article => {
+      return article.topic === topic
+    })
+  }
+</script>
 
 <style lang="scss" scoped>
 .oriter {

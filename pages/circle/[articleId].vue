@@ -16,7 +16,7 @@ import type { Ref } from 'vue';
 const route = useRoute();
 const articleTitle = route.params.articleId
 const { eliminateArticlesByType } = articlesState();
-const articlesList = eliminateArticlesByType("oriter");
+const articlesList = eliminateArticlesByType("circle");
 const showArticle = articlesList.find(article => {
   return article.title === articleTitle
 })
