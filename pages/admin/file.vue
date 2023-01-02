@@ -11,7 +11,7 @@
     <p>{{ fileSendDone }}</p>
     <a :href="filePath" target="_blank">{{ filePath }}</a>
     <br>
-    <p v-for="file in files" :key="file.name"><a :href="`http://localhost:42023/ori/2023/visitor/upload/${file.name}`" target="_blank">{{ file.name }}</a>最終更新：{{ organizeDate(file.updatedAt) }}</p>
+    <p v-for="file in files" :key="file.name"><a :href="`https://www.a103.net//ori/2023/visitor/upload/${file.name}`" target="_blank">{{ file.name }}</a>最終更新：{{ organizeDate(file.updatedAt) }}</p>
   </div>
 </template>
 
@@ -58,6 +58,6 @@ const sendFile = async () => {
     body: formData
   });
   fileSendDone.value = alreadyCheck.alreadyCheck ? "ファイルを更新しました。" : "ファイルをアップロードしました。"
-  filePath.value = `http://localhost:42023/ori/2023/visitor/upload/${fileName.value}${fileExtention}`
+  filePath.value = `https://www.a103.net//ori/2023/visitor/upload/${fileName.value}${fileExtention}`
 }
 </script>
