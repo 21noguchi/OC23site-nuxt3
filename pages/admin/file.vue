@@ -24,7 +24,8 @@ const runtimeConfig = useRuntimeConfig()
 const uploadingFile: Ref<any> = ref(null);
 const fileName: Ref<string> = ref("")
 const files = await $fetch('/api/file/read', {
-  method: "GET"
+  method: "GET",
+  baseURL: runtimeConfig.public.nodeEnv.BASE_URL
 });
 const getFileNameBody = (fileNameWithType: string): string => {
   const lengthOfDot = fileNameWithType.indexOf('.')
@@ -52,11 +53,13 @@ const sendFile = async () => {
     method: "POST",
     body: {
       fileName: fileName.value + fileExtention
-    }
+    },
+      baseURL: runtimeConfig.public.nodeEnv.BASE_URL
   });
   await $fetch('/api/file/upload', {
     method: "POST",
-    body: formData
+    body: formData,
+    baseURL: runtimeConfig.public.nodeEnv.BASE_URL
   });
   fileSendDone.value = alreadyCheck.alreadyCheck ? "ファイルを更新しました。" : "ファイルをアップロードしました。"
   filePath.value = `${runtimeConfig.public.nodeEnv.BASE_URL}/upload/${fileName.value}${fileExtention}`

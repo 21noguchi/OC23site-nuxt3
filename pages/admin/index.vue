@@ -37,6 +37,7 @@
   definePageMeta({
     middleware: 'admin'
   });
+  const runtimeConfig = useRuntimeConfig();
   const articleTitle: Ref<string> = ref("");
   const articleBody: Ref<string> = ref("");
   const date = new Date();
@@ -50,7 +51,8 @@
         articleTitle: articleTitle.value,
         articleDate: today,
         articleBody: articleBody.value
-      }
+      },
+      baseURL: runtimeConfig.public.nodeEnv.BASE_URL
     });
   };
   const selectedType: Ref<ArticleType> = ref("freshers")
