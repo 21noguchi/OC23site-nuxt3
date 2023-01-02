@@ -1,26 +1,31 @@
 @use 'devices' as *;
 @use 'colors' as *;
 .articleBody {
-  width: 90vw;
+  width: 90%;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   h1 {
-    width: 90vw;
+    width: 90%;
     font-size: 16px;
     font-weight: bold;
   }
   p {
-    width: 90vw;
+    width: 90%;
+    &:has(a) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   a {
-    width: 40vw;
+    width: 40%;
     @include tab {
-      width: 50vw;
+      width: 50%;
     }
     @include pc {
-      width: 50vw;
+      width: 50%;
     }
     height: 60px;
     background-color: $main;

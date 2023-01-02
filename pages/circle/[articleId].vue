@@ -2,7 +2,7 @@
   <div class="article">
     <p class="title">{{ showArticle?.title }}</p>
     <p class="date">{{ showArticle?.date }}</p>
-    <div class="text" v-html="html"></div>
+    <div class="articleBody" v-html="html"></div>
   </div>
 </template>
 

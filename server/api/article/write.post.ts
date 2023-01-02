@@ -1,4 +1,3 @@
-import { readBody } from 'h3';
 import mongoose from 'mongoose';
 export default eventHandler(async event => {
   const body = await readBody(event);

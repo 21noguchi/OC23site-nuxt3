@@ -1,6 +1,6 @@
 <template>
   <a :href="`${baseURL}/files${fileLink}`" target="_blank" class="download-button">
-    <p>ダウンロード</p>
+    ダウンロード
   </a>
 </template>
 

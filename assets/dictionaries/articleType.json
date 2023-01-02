@@ -1,7 +1,18 @@
-{
-  "freshers": "新入生の方",
-  "oriter": "オリターの方",
-  "circle": "サークルの方",
-  "news": "新着情報",
-  "committee": "委員会について"
-}
+[
+  {
+    "ja": "新入生の方",
+    "eng": "freshers"
+  },{
+    "ja": "オリターの方",
+    "eng": "oriter"
+  },{
+    "ja": "サークルの方",
+    "eng": "circle"
+  },{
+    "ja": "新着情報",
+    "eng": "news"
+  },{
+    "ja": "当委員会について",
+    "eng": "committee"
+  }
+]
