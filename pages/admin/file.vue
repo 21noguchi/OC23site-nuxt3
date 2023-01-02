@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form action="/ori/2023/visitor/api/file" method="post" enctype="multipart/form-data">
+    <form :action="`${runtimeConfig.public.nodeEnv.BASE_PATH}/api/file`" method="post" enctype="multipart/form-data">
       <select v-model="fileName">
         <option v-for="file in files" :key="file.name">{{ getFileNameBody(file.name) }}</option>
       </select>
@@ -11,15 +11,16 @@
     <p>{{ fileSendDone }}</p>
     <a :href="filePath" target="_blank">{{ filePath }}</a>
     <br>
-    <p v-for="file in files" :key="file.name"><a :href="`https://www.a103.net//ori/2023/visitor/upload/${file.name}`" target="_blank">{{ file.name }}</a>最終更新：{{ organizeDate(file.updatedAt) }}</p>
+    <p v-for="file in files" :key="file.name"><a :href="`${runtimeConfig.public.nodeEnv.BASE_URL}/upload/${file.name}`" target="_blank">{{ file.name }}</a>最終更新：{{ organizeDate(file.updatedAt) }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Ref } from 'vue';
 definePageMeta({
-    middleware: 'admin'
-  });
+  middleware: 'admin'
+});
+const runtimeConfig = useRuntimeConfig()
 const uploadingFile: Ref<any> = ref(null);
 const fileName: Ref<string> = ref("")
 const files = await $fetch('/api/file/read', {
@@ -58,6 +59,6 @@ const sendFile = async () => {
     body: formData
   });
   fileSendDone.value = alreadyCheck.alreadyCheck ? "ファイルを更新しました。" : "ファイルをアップロードしました。"
-  filePath.value = `https://www.a103.net//ori/2023/visitor/upload/${fileName.value}${fileExtention}`
+  filePath.value = `${runtimeConfig.public.nodeEnv.BASE_URL}/upload/${fileName.value}${fileExtention}`
 }
 </script>

@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 export default defineNuxtPlugin(async () => {
+  const config = useRuntimeConfig()
   mongoose.set('strictQuery', true);
   const mongooseConnect = async () => {
-    await mongoose.connect('mongodb://127.0.0.1:27017/OC23site');
+    await mongoose.connect(`mongodb://127.0.0.1:27017/${config.public.localEnv.MONGO_DB_NAME}`);
   }
   mongooseConnect()
   console.log("コネクト済み")

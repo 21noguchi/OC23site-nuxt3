@@ -1,5 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const nodeEnv = require(`./env/node.${process.env.NODE_ENV ? process.env.NODE_ENV : "development"}`);
+const localEnv = require("./env/local");
 export default defineNuxtConfig({
+  devServer: {
+    url: nodeEnv.BASE_URL
+  },
+  runtimeConfig: {
+    public: {
+      nodeEnv: nodeEnv,
+      localEnv: localEnv
+    }
+  },
   app:{
     head: {
       title: "2023年度オリエンテーション委員会",
@@ -8,11 +19,10 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" }
       ],
       link: [
-        { rel: "icon", type: "image/ico", href: "/ori/2023/visitor/favicon.ico" }
+        { rel: "icon", type: "image/ico", href: `${nodeEnv.BASE_PATH}/favicon.ico` }
       ],
     },
-    baseURL: "/ori/2023/visitor",
-    cdnURL: "/ori/2023/visitor"
+    baseURL: nodeEnv.BASE_PATH
   },
   typescript: {
     strict: true

@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 const runtimeconfig = useRuntimeConfig();
-const baseURL = runtimeconfig.app.baseURL;
+const baseURL = runtimeconfig.public.nodeEnv.BASE_URL;
 </script>
 
 <style lang="scss" scoped>
