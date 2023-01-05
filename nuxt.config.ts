@@ -29,7 +29,8 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: [
-      'composables/**'
+      'composables/**',
+      'utils/**'
     ]
   },
   css: ["assets/styles/main.scss"],

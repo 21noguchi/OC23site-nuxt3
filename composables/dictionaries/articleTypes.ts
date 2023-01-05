@@ -1,4 +1,4 @@
-[
+export const articleTypes = [
   {
     "ja": "新入生の方",
     "eng": "freshers"

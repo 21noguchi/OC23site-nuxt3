@@ -11,10 +11,10 @@
 
 <script setup lang="ts">
 const categorys = reactive<UserCategory[]>([
-  {
-    toCategoryLink: "/freshers",
-    toCategoryName: "新入生の方"
-  },
+  // {
+  //   toCategoryLink: "/freshers",
+  //   toCategoryName: "新入生の方"
+  // },
   {
     toCategoryLink: "/oriter",
     toCategoryName: "オリターの方"

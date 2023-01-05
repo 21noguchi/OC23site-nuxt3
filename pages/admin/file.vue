@@ -16,13 +16,12 @@
 </template>
 
 <script setup lang="ts">
-import { Ref } from 'vue';
 definePageMeta({
   middleware: 'admin'
 });
 const runtimeConfig = useRuntimeConfig()
-const uploadingFile: Ref<any> = ref(null);
-const fileName: Ref<string> = ref("")
+const uploadingFile = ref<any>(null);
+const fileName = ref("")
 const files = await $fetch('/api/file/read', {
   method: "GET",
   baseURL: runtimeConfig.public.nodeEnv.BASE_URL
@@ -41,8 +40,8 @@ const organizeDate = (date: string| undefined ): string => {
     return ""
   }
 }
-const fileSendDone: Ref<string> = ref("")
-const filePath: Ref<string> = ref("")
+const fileSendDone = ref("")
+const filePath = ref("")
 const sendFile = async () => {
   const uploadFile: Blob = uploadingFile.value.files[0];
   const fileExtention = uploadFile.name.substring(uploadFile.name.lastIndexOf("."));

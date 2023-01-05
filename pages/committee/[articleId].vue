@@ -7,37 +7,16 @@
 </template>
 
 <script setup lang="ts">
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-import type { Ref } from 'vue';
+  const route = useRoute();
+  const { eliminateArticlesByType } = articlesState();
 
-const route = useRoute();
-const articleTitle = route.params.articleId
-const { eliminateArticlesByType } = articlesState();
-const articlesList = eliminateArticlesByType("committee");
-const showArticle = articlesList.find(article => {
-  return article.title === articleTitle
-})
+  const articleTitle = route.params.articleId;
+  const articlesList = eliminateArticlesByType("committee");
+  const showArticle = articlesList.find(article => {
+    return article.title === articleTitle;
+  });
 
-const processor = unified()
-  .use(remarkParse)
-  .use(remarkRehype)
-  .use(rehypeStringify);
-
-const html: Ref<string> = ref("")
-const renderArticle = async () => {
-  if (showArticle) {
-    html.value = await processor.process(showArticle.body).then((contents) => {
-      const stringContents = String(contents);
-      const atagUpdatedContents = stringContents.replace( '<a ', '<a target="_blank" ' );
-      return atagUpdatedContents
-    });
-    return html
-  }
-}
-renderArticle() 
+  const html = await fMtH(showArticle?.body ? showArticle?.body : "");
 </script>
 
 <style lang="scss" scoped>

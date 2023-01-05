@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLink to="/admin/article">記事編集ページへ。</NuxtLink>
+    <PagesAdminArticleAdd />
   </div>
 </template>
 <script setup lang="ts">

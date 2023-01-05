@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import { model } from 'mongoose';
 export default eventHandler(async () => {
-  const File = mongoose.model('files');
+  const File = model('files');
   const fileData: SaveFile[] = await File.find();
   return fileData
 })

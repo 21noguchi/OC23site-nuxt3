@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <NuxtLink to="/admin/article">記事編集ページへ。</NuxtLink>
-  </div>
+  <PagesAdminArticleEdit />
 </template>
 <script setup lang="ts">
 definePageMeta({
